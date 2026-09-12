@@ -425,10 +425,117 @@
         margin-top: 4px;
         letter-spacing: 0.05em;
       }
+      /* Profile Photo */
+      .profile-photo-wrap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1200px;
+      }
+      .profile-photo-container {
+        position: relative;
+        width: 420px;
+        height: 520px;
+        border-radius: 28px;
+        background: linear-gradient(
+          140deg,
+          rgba(99, 102, 241, 0.18),
+          rgba(236, 72, 153, 0.12),
+          rgba(34, 211, 238, 0.08)
+        );
+        border: 2px solid var(--border);
+        overflow: hidden;
+        box-shadow: 0 30px 80px -30px rgba(99, 102, 241, 0.4);
+        animation: containerPulse 3s ease-in-out infinite;
+      }
+      .profile-photo-container::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        background: var(--grad);
+        border-radius: 28px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: -1;
+      }
+      .profile-photo-container:hover::before {
+        opacity: 0.5;
+      }
+      .profile-photo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        animation:
+          imageZoom 4s ease-in-out infinite,
+          imageRotate 8s linear infinite,
+          imageShadow 3s ease-in-out infinite;
+      }
+      @keyframes containerPulse {
+        0%,
+        100% {
+          box-shadow: 0 30px 80px -30px rgba(99, 102, 241, 0.4);
+          transform: scale(1);
+        }
+        50% {
+          box-shadow: 0 40px 100px -20px rgba(236, 72, 153, 0.6);
+          transform: scale(1.02);
+        }
+      }
+      @keyframes imageZoom {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+      @keyframes imageRotate {
+        0% {
+          filter: brightness(1) contrast(1);
+        }
+        50% {
+          filter: brightness(1.1) contrast(1.05);
+        }
+        100% {
+          filter: brightness(1) contrast(1);
+        }
+      }
+      @keyframes imageShadow {
+        0%,
+        100% {
+          filter: drop-shadow(0 20px 40px rgba(34, 211, 238, 0.4));
+        }
+        50% {
+          filter: drop-shadow(0 30px 60px rgba(236, 72, 153, 0.7));
+        }
+      }
+      .profile-photo-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.3),
+          rgba(236, 72, 153, 0.3)
+        );
+        font-family: "Syne";
+        font-size: 64px;
+        font-weight: 800;
+        color: var(--muted);
+      }
       @media (max-width: 900px) {
         #hero {
           grid-template-columns: 1fr;
           padding-top: 130px;
+        }
+        .profile-photo-container {
+          width: 340px;
+          height: 420px;
         }
       }
 
@@ -822,40 +929,28 @@
         <div class="hero-tag">// AI · FULL-STACK · DATA SCIENCE</div>
         <h1 class="hero-name">Soudu<br />Vignesh</h1>
         <p class="hero-sub">
-          recent CSE graduate passionate about AI, and full-stack development. I build production-grade systems that blend computer vision, backend rigor, and clean UX.
+          recent CSE graduate passionate about AI, and full-stack development. I
+          build production-grade systems that blend computer vision, backend
+          rigor, and clean UX.
         </p>
         <div class="ctas">
           <a href="#projects" class="btn primary">View Projects →</a>
           <a href="#contact" class="btn">Get in touch</a>
           <a
-            href="https://github.com/vigneshsoudu19"
+            href="https://github.com/vigneshsoudu2004-glitch"
             target="_blank"
             class="btn"
             >GitHub</a
           >
         </div>
       </div>
-      <div class="float-card">
-        <div class="card3d">
-          <h3>// Quick Stats</h3>
-          <div class="stat-grid">
-            <div class="stat">
-              <div class="num">7.5</div>
-              <div class="lbl">CGPA / 10</div>
-            </div>
-            <div class="stat">
-              <div class="num">2+</div>
-              <div class="lbl">Internships</div>
-            </div>
-            <div class="stat">
-              <div class="num">2</div>
-              <div class="lbl">Major Projects</div>
-            </div>
-            <div class="stat">
-              <div class="num">3+</div>
-              <div class="lbl">Certifications</div>
-            </div>
-          </div>
+      <div class="profile-photo-wrap">
+        <div class="profile-photo-container">
+          <img
+            src="assets/ChatGPT Image Sep 12, 2026, 07_36_05 PM.png"
+            alt="Soudu Vignesh"
+            class="profile-photo-img"
+          />
         </div>
       </div>
     </section>
@@ -922,11 +1017,9 @@
             ><span class="chip">Bootstrap</span>
             <span class="chip">Node.js</span><span class="chip">Express.js</span
             ><span class="chip">Flask</span> <span class="chip">MySQL</span
-            ><span class="chip">MongoDB</span> <span class="chip">YOLOv8</span
-            ><span class="chip">Deep SORT</span><span class="chip">OpenCV</span>
+            ><span class="chip">MongoDB</span> 
             <span class="chip">Git</span><span class="chip">GitHub</span
-            ><span class="chip">REST APIs</span> <span class="chip">JWT</span
-            ><span class="chip">Bcrypt</span>
+            ><span class="chip">REST APIs</span> 
           </div>
         </div>
       </div>
@@ -943,7 +1036,7 @@
           <div class="tl-card">
             <div class="tl-meta">
               <div class="role">Data Science & ML Intern</div>
-              <div class="date">Jul 2025 · 2 Weeks</div>
+              <div class="date"> 2 Weeks</div>
             </div>
             <div class="tl-org">Ybi Foundation · Remote</div>
             <ul>
@@ -1087,7 +1180,6 @@
             <h3>Languages</h3>
             <div class="badges">
               <span class="badge">English · Professional</span>
-              <span class="badge">Hindi · Fluent</span>
               <span class="badge">Telugu · Native</span>
             </div>
           </div>
@@ -1123,17 +1215,17 @@
           >
           <a
             class="info"
-            href="https://linkedin.com/in/soudu-vignesh-soudu-013208355"
+            href="https://www.linkedin.com/in/vigneshsoudu/"
             target="_blank"
             ><div class="lbl">LinkedIn</div>
             <div class="val">soudu-vignesh</div></a
           >
           <a
             class="info"
-            href="https://github.com/vigneshsoudu19"
+            href="https://github.com/vigneshsoudu2004-glitch"
             target="_blank"
             ><div class="lbl">GitHub</div>
-            <div class="val">@vigneshsoudu19</div></a
+            <div class="val">@vigneshsoudu2004-glitch</div></a
           >
         </div>
       </div>
